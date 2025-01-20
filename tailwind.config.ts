@@ -11,7 +11,17 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        slateBlue: "var(--slateBlue)"
+        'primary': "var(--primary)",
+        'secondary': "var(--secondary)",
+        'light': "var(--light)",
+        'accent': "var(--accent)",
+        'customGray': "var(--customGray)",
+      },
+      keyframes: {
+        rotate: {
+          'from': { transform: 'rotate(0deg)' },
+          'to': { transform: 'rotate(360deg)' },
+        },
       },
     },
   },

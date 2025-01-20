@@ -12,10 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const cormorant = Cormorant({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-})
+// const cormorant = Cormorant({
+//   variable: "--font-cormorant",
+//   subsets: ["latin"],
+// })
 
 export const metadata: Metadata = {
   title: "Ved's Portoflio",
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
