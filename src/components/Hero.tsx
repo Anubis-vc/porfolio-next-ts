@@ -22,14 +22,15 @@ function Hero({ }: Props) {
 
 	return (
 		<div className='h-screen flex flex-col space-y-8 items-center justify-center
-			text-center overflow-hidden relative'>
+			text-center overflow-visible relative'>
 			<WaveAnimation />
 			<Image 
-				className="relative rounded-full h-40 w-40 mx-auto object-cover"
+				className="rounded-full h-40 w-40 mx-auto object-cover"
 				src={profilePic} 
-				alt="picture of me" />
+				alt="picture of me" 
+			/>
 
-			<div className='z-20'>
+			<div className='z-10'>
 				<h2 className='text-sm uppercase text-customGray pb-2 tracking-[10px]'>Software Engineer</h2>
 				<h1 className='text-4xl lg:text-5xl font-semibold mb-3'>Hello, I am Ved Chugh</h1>
 				<h2 className='text-2xl lg:text-3xl text-customGray font-semibold'>

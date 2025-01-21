@@ -45,8 +45,6 @@ export default function Header({ }: Props) {
 					}}
 					className="flex flex-row items-center gap-3"
 				>
-					{/* Social Icons */}
-
 					<motion.div variants={iconBounceVariants}>
 						<SocialIcon
 							target="_blank"
@@ -125,7 +123,6 @@ export default function Header({ }: Props) {
 						/>
 						<p className="uppercase hidden md:inline-flex text-sm text-black-400">Contact Me</p>
 					</div>
-					
 				</motion.div>
 			</div>
 		</header>

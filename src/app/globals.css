@@ -23,13 +23,13 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
   margin: 0;
+  padding: 0;
 }
 
 @layer components {
   .heroButton {
     @apply m-0 px-4 py-2 border border-[#65737E] rounded-full uppercase
-    text-xs tracking-widest text-[#65737E] transition-all hover:border-black
+    text-xs tracking-widest text-[#65737E] transition-all hover:border-black hover:text-black
   }
 }
