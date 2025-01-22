@@ -16,7 +16,7 @@ export default function About({ }: Props) {
 			transition={{ duration: 1.5 }}
 			viewport={{ once:true, amount:0.5 }}
 			className='flex flex-col relative h-screen text-center max-w-7xl px-10 
-			justify-evenly mx-auto items-center md:text-left md:flex-row pt-10'
+			justify-evenly mx-auto items-center md:text-left md:flex-row pt-10 flex-shrink-0'
 		>
 			<h3 className='absolute top-24 uppercase tracking-[1.25rem] text-customGray text-2xl'>
 				About
