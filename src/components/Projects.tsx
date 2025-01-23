@@ -1,5 +1,4 @@
 "use client";
-
 import React from 'react'
 import Image from 'next/image';
 import anotherImg from "../assets/DSC02379.jpeg";
@@ -23,8 +22,9 @@ function Projects({}: Props) {
 			Projects
 		</h3>
 
-		<div className='relative w-full flex overflow-x-scroll overflow-y-hidden 
-		snap-x snap-mandatory z-20'>
+		<div className='relative w-screen flex overflow-x-scroll overflow-y-hidden 
+		snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-[#65737E]/20 
+		scrollbar-thumb-secondary'>
 			{projects.map((project, i) => (
 				<div
 					key={i} 
