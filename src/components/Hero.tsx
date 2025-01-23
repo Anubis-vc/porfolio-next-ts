@@ -25,7 +25,7 @@ function Hero({ }: Props) {
 			text-center overflow-visible relative'>
 			<WaveAnimation />
 			<Image 
-				className="rounded-full h-40 w-40 mx-auto object-cover"
+				className="rounded-full h-48 w-48 mx-auto object-cover"
 				src={profilePic} 
 				alt="picture of me" 
 			/>

@@ -32,4 +32,10 @@ body {
     @apply m-0 px-4 py-2 border border-[#65737E] rounded-full uppercase
     text-xs tracking-widest text-[#65737E] transition-all hover:border-black hover:text-black
   }
+
+  .contactInput {
+    @apply outline-none bg-[#65737E]/30 rounded-sm border-b-2 px-6 py-4 border-accent
+    text-black placeholder-customGray transition-all focus:border-secondary
+    focus:text-primary hover:border-secondary
+  }
 }

@@ -1,7 +1,10 @@
 import About from "@/components/About";
+import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
@@ -12,21 +15,27 @@ export default function Home() {
         <Hero />
       </section>
 
-    {/* this component struggles on narrow resize */}
+    {/* this component struggles on narrow resize flex-shrink-0 */}
       <section id="about" className="snap-center">
         <About />
       </section>
 
-      {/* Experiences */}
       <section id="experience" className="snap-center">
         <Experience />
       </section>
 
-      {/* Skills */}
+      <section id="skills" className="snap-start">
+        <Skills />
+      </section>
 
-      {/* Projects */}
+      <section id="projects" className="snap-start">
+        <Projects />
+      </section>
 
       {/* Contact me */}
+      <section id="contact" className="snap-start">
+        <Contact />
+      </section>
     </div>
   );
 }

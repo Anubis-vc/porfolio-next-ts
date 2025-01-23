@@ -8,7 +8,7 @@ type Props = {}
 function ExpCard({}: Props) {
   return (
 	<article className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0
-	w-[400px] md:w-[500px] xl:w-[700px] snap-center border-2 border-primary p-5
+	w-[400px] md:w-[500px] xl:w-[700px] snap-center border-2 border-primary p-3
 	opacity-80 hover:opacity-100 hover:shadow-slate-500/50 hover:shadow 
 	cursor-pointer transition-all duration-200 max-h-[500px] overflow-y-scroll'>
 		<motion.img
