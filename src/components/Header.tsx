@@ -2,6 +2,7 @@
 import React from 'react'
 import { SocialIcon } from 'react-social-icons';
 import { motion } from "motion/react";
+import Link from 'next/link';
 
 type Props = {}
 
@@ -14,7 +15,7 @@ export default function Header({ }: Props) {
 			y: [-50, 0],
 			transition: {
 				duration: 0.5,
-				ease: "easeOut"
+				ease: "easeOut",
 			}
 		}
 	};
@@ -112,17 +113,21 @@ export default function Header({ }: Props) {
 						duration: 1.5,
 					}}
 				>
-					<div className='flex flex-row items-center cursor-pointer
-						hover:scale-105 transition duration-200 ease-in-out'
-					>
-						<SocialIcon
-						target="_blank"
-						network="email"
-						fgColor="black"
-						bgColor="transparent"
-						/>
-						<p className="uppercase hidden md:inline-flex text-sm text-black-400">Contact Me</p>
-					</div>
+					<Link href="#contact">
+						<div className='flex flex-row items-center cursor-pointer
+							hover:scale-105 transition duration-200 ease-in-out'
+						>
+							<SocialIcon
+							target="_blank"
+							network="email"
+							fgColor="black"
+							bgColor="transparent"
+							/>
+							<p className="uppercase hidden md:inline-flex text-sm text-black-400">
+								Contact Me
+							</p>
+						</div>
+					</Link>
 				</motion.div>
 			</div>
 		</header>
