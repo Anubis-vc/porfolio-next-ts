@@ -118,6 +118,7 @@ export default function Header({ }: Props) {
 							hover:scale-105 transition duration-200 ease-in-out'
 						>
 							<SocialIcon
+							as="span"
 							target="_blank"
 							network="email"
 							fgColor="black"
