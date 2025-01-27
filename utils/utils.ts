@@ -2,8 +2,7 @@ import { Social, SkillType, Project, PageInfo, Experience } from "../typings";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||
         process.env.SANITY_STUDIO_BASE_URL ||
-		(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}`
-			: `https://vedchugh.info`)
+		`https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
 
 export const fetchSocials = async (): Promise<Social[]> => {
     try {
