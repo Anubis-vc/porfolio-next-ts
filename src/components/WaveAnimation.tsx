@@ -2,9 +2,7 @@
 import React from 'react'
 import { motion } from "motion/react";
 
-type Props = {}
-
-export default function WaveAnimation({ }: Props) {
+export default function WaveAnimation() {
 	return (
 		<motion.div
 		initial={{

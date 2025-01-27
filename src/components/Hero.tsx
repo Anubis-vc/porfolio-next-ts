@@ -2,7 +2,6 @@
 import React from 'react'
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import WaveAnimation from './WaveAnimation';
-import profilePic from "../assets/IMG_6954_square.jpeg";
 import Image from "next/image";
 import Link from "next/link";
 import { PageInfo } from '../../typings';
@@ -13,7 +12,7 @@ type Props = {
 }
 
 function Hero({ pageInfo }: Props) {
-	const [text, count] = useTypewriter({
+	const [text] = useTypewriter({
 		words: [
 			"Fullstack Development",
 			"Machine Learning",
