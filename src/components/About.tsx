@@ -2,13 +2,17 @@
 import React from 'react'
 import { motion } from "motion/react";
 import aboutPic from "../assets/DSC02379.jpeg";
+import { PageInfo } from '../../typings';
+import { urlFor } from '@/sanity/lib/image';
 
 // this component struggles with resizing on narrow screens, 
 // come back and fix.
 
-type Props = {}
+type Props = {
+	pageInfo: PageInfo;
+}
 
-export default function About({ }: Props) {
+export default function About({ pageInfo }: Props) {
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -35,7 +39,7 @@ export default function About({ }: Props) {
 					opacity: 1,
 				 }}
 				viewport={{ once: true }}
-				src={aboutPic.src}
+				src={urlFor(pageInfo?.profilePic).url()}
 				className='-mb-24 md:mb-0 flex-shrink-0 w-44 h-44 rounded-full object-cover
 					md:rounded-lg md:w-64 md:h-96 md:object-right'
 			/>
@@ -45,14 +49,7 @@ export default function About({ }: Props) {
 					A bit more about me
 				</h4>
 				<p className='text-base md:text-lg'>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut est blandit, 
-				imperdiet magna sit amet, mattis urna. In tincidunt lorem vitae massa congue 
-				fringilla. Sed dignissim rutrum pretium. Proin egestas magna varius, bibendum 
-				nunc in, egestas dui. Ut elementum viverra dui vitae venenatis. Vivamus ultrices 
-				ligula id porta congue. Proin dapibus elit in odio ultricies, et maximus enim 
-				imperdiet. Quisque at ligula id eros molestie hendrerit eu sodales urna. Nunc 
-				tincidunt, elit akrwugh;oar aooairsgaoirjgo aoisrgoaijrgoia aoirsgjaiojg aoirsgjaio
-				kaushgua aosuehfoajf oaisgoiasjg oairgoiajs gpoiargoiaopg aoigoai asigohg
+				{pageInfo?.backgroundInfo}
 				</p>
 			</div>
 		</motion.div>

@@ -6,10 +6,10 @@ import Link from 'next/link';
 import { Social } from '../../typings';
 
 type Props = {
-	// socials: Social[]
+	socials: Social[];
 }
 
-export default function Header({ }: Props) {
+export default function Header({ socials }: Props) {
 	const iconBounceVariants = {
 		initial: {
 			y: 0
@@ -49,56 +49,19 @@ export default function Header({ }: Props) {
 					}}
 					className="flex flex-row items-center gap-3"
 				>
-					<motion.div variants={iconBounceVariants}>
-						<SocialIcon
-							target="_blank"
-							className='hover:scale-105 transition duration-200 ease-in-out'
-							url="https://twitter.com/notved"
-							fgColor="black"
-							bgColor="transparent"
-						/>
-					</motion.div>
-
-					<motion.div variants={iconBounceVariants}>
-						<SocialIcon
-							target="_blank"
-							className='hover:scale-105 transition duration-200 ease-in-out'
-							url="https://www.instagram.com/ved.dchugh/"
-							fgColor="black"
-							bgColor="transparent"
-						/>
-					</motion.div>
-
-					<motion.div variants={iconBounceVariants}>
-						<SocialIcon
-							target="_blank"
-							className='hover:scale-105 transition duration-200 ease-in-out'
-							url="https://www.linkedin.com/in/vedchugh"
-							fgColor="black"
-							bgColor="transparent"
-						/>
-					</motion.div>
-
-					<motion.div variants={iconBounceVariants}>
-						<SocialIcon
-						target="_blank"
-						className='hover:scale-105 transition duration-200 ease-in-out'
-						url="https://github.com/Anubis-vc"
-						fgColor="black"
-						bgColor="transparent"
-						/>
-					</motion.div>
-					
-					<motion.div variants={iconBounceVariants}>
-						<SocialIcon
-						target="_blank"
-						className='hover:scale-105 transition duration-200 ease-in-out'
-						url="https://letterboxd.com/vedchugh/"
-						fgColor="black"
-						bgColor="transparent"
-						/>
-					</motion.div>
-					
+					{socials.map((social => (
+						<motion.div
+							key={social._id}
+							variants={iconBounceVariants}>
+							<SocialIcon
+								target="_blank"
+								className='hover:scale-105 transition duration-200 ease-in-out'
+								url={social.url}
+								fgColor="black"
+								bgColor="transparent"
+							/>
+						</motion.div>
+					)))}
 				</motion.div>
 
 				<motion.div

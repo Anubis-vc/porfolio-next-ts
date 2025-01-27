@@ -5,10 +5,14 @@ import WaveAnimation from './WaveAnimation';
 import profilePic from "../assets/IMG_6954_square.jpeg";
 import Image from "next/image";
 import Link from "next/link";
+import { PageInfo } from '../../typings';
+import { urlFor } from '@/sanity/lib/image';
 
-type Props = {}
+type Props = {
+	pageInfo: PageInfo
+}
 
-function Hero({ }: Props) {
+function Hero({ pageInfo }: Props) {
 	const [text, count] = useTypewriter({
 		words: [
 			"Fullstack Development",
@@ -26,12 +30,14 @@ function Hero({ }: Props) {
 			<WaveAnimation />
 			<Image 
 				className="rounded-full h-48 w-48 mx-auto object-cover"
-				src={profilePic} 
+				src={urlFor(pageInfo?.heroImage).url()}
+				width={897}
+				height={897}
 				alt="picture of me" 
 			/>
 
 			<div className='z-10'>
-				<h2 className='text-sm uppercase text-customGray pb-2 tracking-[10px]'>Software Engineer</h2>
+				<h2 className='text-sm uppercase text-customGray pb-2 tracking-[10px]'>{pageInfo.role}</h2>
 				<h1 className='text-4xl lg:text-5xl font-semibold mb-3'>Hello, I am Ved Chugh</h1>
 				<h2 className='text-2xl lg:text-3xl text-customGray font-semibold'>
 					<span>I do {text}</span>

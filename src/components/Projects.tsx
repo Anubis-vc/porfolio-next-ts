@@ -3,11 +3,14 @@ import React from 'react'
 import Image from 'next/image';
 import anotherImg from "../assets/DSC02379.jpeg";
 import { motion } from "motion/react";
+import { Project } from '../../typings';
+import { urlFor } from '@/sanity/lib/image';
 
-type Props = {}
+type Props = {
+	projects: Project[];
+}
 
-function Projects({}: Props) {
-	const projects = [1, 2, 3, 4, 5];
+function Projects({ projects }: Props) {
   return (
 	<motion.div
 		initial={{ opacity: 0 }}
@@ -27,30 +30,35 @@ function Projects({}: Props) {
 		scrollbar-thumb-secondary'>
 			{projects.map((project, i) => (
 				<div
-					key={i} 
+					key={project._id}
 					className='w-screen h-screen flex-shrink-0 flex flex-col
 					items-center justify-center px-10 md:px-20 snap-center space-y-5'
 				>
-					<Image
-						src={anotherImg}
+					<img
+						src={urlFor(project?.image).url()}
 						alt="project image"
-						className='max-h-[300px] w-auto object-cover mx-auto'
+						className='max-h-[250px] w-auto object-cover mx-auto shadow-lg rounded-lg'
 					/>
 
 					<div className='space-y-5 px-0 md:px-10 max-w-6xl overflow-y-scroll'>
 						<h4 className='text-2xl md:text-3xl font-semibold text-center'>
-							Case Study {project} of {projects.length}: UPS Clone
+							{i + 1} of {projects?.length}: {project?.title}
 						</h4>
 
+						<div className='flex tems-center space-x-2 justify-center'>
+							{project?.technologies.map((tech) => (
+								<img
+									key={tech._id}
+									src={urlFor(tech.image).url()}
+									alt={tech.title}
+									className='h-7 w-7 rounded-full'
+								/>
+							))}
+						</div>
+						
+
 						<p className='text-center md:text-left'>
-						Lorem ipsum odor amet, consectetuer adipiscing elit. Vivamus 
-						cursus praesent sit facilisis vitae lacus. Finibus quis bibendum
-						ut pellentesque suscipit. Euismod morbi congue eget quis platea 
-						ante. Augue lectus curae varius integer augue dui venenatis eget. 
-						Elementum eget laoreet turpis class vestibulum eget a ullamcorper 
-						feugiat. Platea diam tincidunt lacus litora dolor venenatis.
-						more to add just in case to see whether the thing bleeds to the
-						top of the containet.
+							{project?.summary}
 						</p>
 					</div>
 				</div>

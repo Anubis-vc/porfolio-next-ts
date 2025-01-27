@@ -2,8 +2,11 @@
 import React from 'react'
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form"
+import { PageInfo } from '../../typings';
 
-type Props = {}
+type Props = {
+	pageInfo: PageInfo;
+}
 
 type Inputs = {
 	name: string;
@@ -12,7 +15,7 @@ type Inputs = {
 	message: string;
 }
 
-const Contact = (props: Props) => {
+const Contact = ({ pageInfo }: Props) => {
 	const {
 		register,
 		handleSubmit,
@@ -33,21 +36,21 @@ const Contact = (props: Props) => {
 				Contact Me
 			</h3>
 
-			<div className='flex flex-col space-y-5 h-full justify-center'>
-				<div className='space-y-3'>
+			<div className='flex flex-col space-y-5 h-full justify-center flex-shrink-0 max-h-96'>
+				<div className='space-y-2'>
 					<div className='flex items-center space-x-3 justify-center'>
 						<PhoneIcon className='text-customGray animate-pulse h-6 w-6' />
-						<p className='text-lg'>+1 609-964-6439</p>
+						<p className='text-lg'>{pageInfo.phoneNumber}</p>
 					</div>
 
 					<div className='flex items-center space-x-3 justify-center'>
 						<EnvelopeIcon className='text-customGray animate-pulse h-6 w-6' />
-						<p className='text-lg'>vchugh@umd.edu</p>
+						<p className='text-lg'>{pageInfo.email}</p>
 					</div>
 
 					<div className='flex items-center space-x-3 justify-center'>
 						<MapPinIcon className='text-customGray animate-pulse h-6 w-6' />
-						<p className='text-lg'>Princeton, NJ</p>
+						<p className='text-lg'>{pageInfo.address}</p>
 					</div>
 				</div>
 
@@ -76,7 +79,7 @@ const Contact = (props: Props) => {
 						{...register('subject')}
 					/>
 					<textarea
-						className='contactInput w-full'
+						className='contactInput w-full max-h-64'
 						placeholder='Message'
 						{...register('message')}
 					/>

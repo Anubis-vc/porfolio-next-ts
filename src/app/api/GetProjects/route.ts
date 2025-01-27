@@ -3,7 +3,7 @@ import { client } from "@/sanity/lib/client"
 import { NextRequest, NextResponse } from "next/server";
 import { Project } from "../../../../typings";
 
-const query = groq`*[_type == "project"] {
+const query = groq`*[_type == "project"] | order(priority asc){
   ...,
   technologies[]->
 }`;

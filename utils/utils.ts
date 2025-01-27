@@ -1,4 +1,4 @@
-import { Social, Skill, Project, PageInfo, Experience } from "../typings";
+import { Social, SkillType, Project, PageInfo, Experience } from "../typings";
 
 export const fetchSocials = async (): Promise<Social[]> => {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?
@@ -24,7 +24,7 @@ export const fetchSocials = async (): Promise<Social[]> => {
     }
 }
 
-const fetchSkills = async (): Promise<Skill[]> => {
+const fetchSkills = async (): Promise<SkillType[]> => {
 	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?
 	process.env.NEXT_PUBLIC_BASE_URL :
 	process.env.SANITY_STUDIO_BASE_URL;
@@ -32,7 +32,7 @@ const fetchSkills = async (): Promise<Skill[]> => {
 	const res = await fetch(`${baseUrl}/api/GetSkills`);
 
 	const data = await res.json();
-	const skills: Skill[] = data.skills;
+	const skills: SkillType[] = data.skills;
 
 	// console.log("fetching", skills);
 

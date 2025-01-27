@@ -35,5 +35,10 @@ export const project = defineType({
 			title: 'Link',
 			type: 'url',
 		}),
+		defineField({
+			name: 'priority',
+			title: 'priority',
+			type: 'number'
+		})
 	],
 });

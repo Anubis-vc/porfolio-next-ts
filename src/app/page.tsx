@@ -12,32 +12,32 @@ export default async function Home() {
 
   return (
     <div className="h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0">
-      <Header />
+      <Header socials={socials} />
 
       <section id="hero" className="snap-start">
-        <Hero />
+        <Hero pageInfo={pageInfo}/>
       </section>
 
     {/* this component struggles on narrow resize flex-shrink-0 */}
       <section id="about" className="snap-center">
-        <About />
+        <About pageInfo={pageInfo}/>
       </section>
 
       <section id="experience" className="snap-center">
-        <Experiences />
+        <Experiences experiences={experiences}/>
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills />
+        <Skills skills={skills}/>
       </section>
 
       <section id="projects" className="snap-start">
-        <Projects />
+        <Projects projects={projects}/>
       </section>
 
       {/* Contact me */}
       <section id="contact" className="snap-start">
-        <Contact />
+        <Contact pageInfo={pageInfo}/>
       </section>
     </div>
   );

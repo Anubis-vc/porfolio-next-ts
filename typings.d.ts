@@ -25,7 +25,7 @@ export interface PageInfo extends SanityBody {
 	profilePic: Image;
 }
 
-export interface Skill extends SanityBody {
+export interface SkillType extends SanityBody {
 	_type: "skill",
 	image: Image;
 	progress: number;
@@ -38,18 +38,19 @@ export interface Project extends SanityBody {
 	link: string;
 	summary: string;
 	image: Image;
-	technologies: Skill[];
+	priority: number;
+	technologies: SkillType[];
 }
 
 export interface Experience extends SanityBody {
 	_type: "experience";
 	companyImg: Image;
 	company: string;
-	dateStarted: Date; // uppercase or lowercase d?
-	dateEnded: Date;
+	dateStarted: date; // uppercase or lowercase d?
+	dateEnded: date;
 	isCurrentJob: boolean;
 	jobTitle: string;
-	technologies: Skill[];
+	technologies: SkillType[];
 	points: string[];
 }
 
