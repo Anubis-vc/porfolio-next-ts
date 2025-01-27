@@ -3,6 +3,8 @@ import React from 'react'
 import { motion } from "motion/react"
 import { SkillType } from '../../typings';
 import { urlFor } from '@/sanity/lib/image';
+import Image from 'next/image';
+import { formatDimensions } from '../../utils/formatUtils';
 
 type Props = {
     directionLeft?: boolean;
@@ -13,7 +15,7 @@ function Skill({ skill, directionLeft }: Props) {
   return (
     <motion.div
         initial={{ 
-            x: directionLeft ? -200 : 200,
+            x: directionLeft ? 200 : -200,
             opacity: 0,
         }}
         transition={{ duration: 1 }}
@@ -24,9 +26,11 @@ function Skill({ skill, directionLeft }: Props) {
         viewport={{ once: true }}
         className='group relative flex cursor-pointer'
     >
-        <img
+        <Image
             src={urlFor(skill.image).url()}
             alt={skill.title}
+			width={formatDimensions(skill.image.asset._ref).width}
+			height={formatDimensions(skill.image.asset._ref).height}
             className='rounded-full border border-secondary object-cover object-center
             w-20 h-20 xl:w-24 xl:h-24 filter group-hover:grayscale 
             transition duration-200 ease-out'

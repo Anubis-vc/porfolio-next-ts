@@ -1,9 +1,10 @@
 'use client';
 import React from 'react'
 import { motion } from "motion/react";
-import aboutPic from "../assets/DSC02379.jpeg";
 import { PageInfo } from '../../typings';
 import { urlFor } from '@/sanity/lib/image';
+import Image from 'next/image';
+import { formatDimensions } from '../../utils/formatUtils';
 
 // this component struggles with resizing on narrow screens, 
 // come back and fix.
@@ -26,7 +27,7 @@ export default function About({ pageInfo }: Props) {
 				About
 			</h3>
 
-			<motion.img
+			<motion.div
 				initial={{ 
 					x: -200,
 					opacity: 0,
@@ -37,19 +38,26 @@ export default function About({ pageInfo }: Props) {
 				whileInView={{
 					x: 0,
 					opacity: 1,
-				 }}
+				}}
 				viewport={{ once: true }}
-				src={urlFor(pageInfo?.profilePic).url()}
 				className='-mb-24 md:mb-0 flex-shrink-0 w-44 h-44 rounded-full object-cover
 					md:rounded-lg md:w-64 md:h-96 md:object-right'
-			/>
+			>
+				<Image
+					src={urlFor(pageInfo?.profilePic).url()}
+					width={formatDimensions(pageInfo.profilePic.asset._ref).width}
+					height={formatDimensions(pageInfo.profilePic.asset._ref).height}
+					alt="Profile Picture" 
+					className='w-full h-full rounded-full md:rounded-lg object-cover md:object-right'
+				/>
+			</motion.div>
 
 			<div className='space-y-5 md:space-y-10 px-0 md:pl-10'>
-				<h4 className='text-4xl font-semibold'>
+				<h4 className='text-3xl font-semibold'>
 					A bit more about me
 				</h4>
 				<p className='text-base md:text-lg'>
-				{pageInfo?.backgroundInfo}
+					{pageInfo?.backgroundInfo}
 				</p>
 			</div>
 		</motion.div>

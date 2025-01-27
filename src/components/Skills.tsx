@@ -15,8 +15,8 @@ function Skills({ skills }: Props) {
 	whileInView={{ opacity: 1 }}
 	transition={{ duration: 1.5 }}
 	viewport={{ once: true, amount: 0.5 }}
-	className='h-screen min-h-screen flex relative flex-col max-h-[1000px] xl:px-10 
-	justify-center xl:space-y-0 mx-auto items-center pt-24'>
+	className='h-screen min-h-screen flex relative flex-col max-h-[1000px] px-5
+	justify-center xl:space-y-0 mx-auto items-center pt-24 overflow-x-scroll'>
 		<h3 className='absolute top-24 uppercase tracking-[1.25rem] 
 		text-customGray text-2xl'>
 			Skills

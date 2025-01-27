@@ -1,10 +1,11 @@
 "use client";
 import React from 'react'
 import Image from 'next/image';
-import anotherImg from "../assets/DSC02379.jpeg";
 import { motion } from "motion/react";
 import { Project } from '../../typings';
 import { urlFor } from '@/sanity/lib/image';
+import { formatDimensions } from '../../utils/formatUtils';
+import Link from 'next/link';
 
 type Props = {
 	projects: Project[];
@@ -31,15 +32,18 @@ function Projects({ projects }: Props) {
 			{projects.map((project, i) => (
 				<div
 					key={project._id}
-					className='w-screen h-screen flex-shrink-0 flex flex-col
+					className='w-screen h-screen flex-shrink-0 flex flex-col overflow-y-scroll
 					items-center justify-center px-10 md:px-20 snap-center space-y-5'
 				>
-					<img
-						src={urlFor(project?.image).url()}
-						alt="project image"
-						className='max-h-[250px] w-auto object-cover mx-auto shadow-lg rounded-lg'
-					/>
-
+					<Link href={project.link} target='_blank'>
+						<Image
+							src={urlFor(project?.image).url()}
+							alt="project image"
+							width={formatDimensions(project?.image.asset._ref).width}
+							height={formatDimensions(project?.image.asset._ref).height}
+							className='max-h-[200px] w-auto object-cover mx-auto shadow-lg rounded-lg'
+						/>
+					</Link>
 					<div className='space-y-5 px-0 md:px-10 max-w-6xl overflow-y-scroll'>
 						<h4 className='text-2xl md:text-3xl font-semibold text-center'>
 							{i + 1} of {projects?.length}: {project?.title}
@@ -47,10 +51,12 @@ function Projects({ projects }: Props) {
 
 						<div className='flex tems-center space-x-2 justify-center'>
 							{project?.technologies.map((tech) => (
-								<img
+								<Image
 									key={tech._id}
 									src={urlFor(tech.image).url()}
 									alt={tech.title}
+									width={formatDimensions(tech.image.asset._ref).width}
+									height={formatDimensions(tech.image.asset._ref).height}
 									className='h-7 w-7 rounded-full'
 								/>
 							))}
