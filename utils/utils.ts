@@ -1,10 +1,11 @@
 import { Social, SkillType, Project, PageInfo, Experience } from "../typings";
 
-export const fetchSocials = async (): Promise<Social[]> => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?
-        process.env.NEXT_PUBLIC_BASE_URL :
-        process.env.SANITY_STUDIO_BASE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||
+        process.env.SANITY_STUDIO_BASE_URL ||
+		(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}`
+			: `https://vedchugh.info`)
 
+export const fetchSocials = async (): Promise<Social[]> => {
     try {
         const res = await fetch(`${baseUrl}/api/GetSocials`);
 
@@ -25,10 +26,6 @@ export const fetchSocials = async (): Promise<Social[]> => {
 }
 
 const fetchSkills = async (): Promise<SkillType[]> => {
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?
-	process.env.NEXT_PUBLIC_BASE_URL :
-	process.env.SANITY_STUDIO_BASE_URL;
-
 	const res = await fetch(`${baseUrl}/api/GetSkills`);
 
 	const data = await res.json();
@@ -40,10 +37,6 @@ const fetchSkills = async (): Promise<SkillType[]> => {
 }
 
 const fetchProjects = async (): Promise<Project[]> => {
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?
-	process.env.NEXT_PUBLIC_BASE_URL :
-	process.env.SANITY_STUDIO_BASE_URL;
-
 	const res = await fetch(`${baseUrl}/api/GetProjects`);
 
 	const data = await res.json();
@@ -55,10 +48,6 @@ const fetchProjects = async (): Promise<Project[]> => {
 }
 
 const fetchPageInfo = async (): Promise<PageInfo> => {
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?
-	process.env.NEXT_PUBLIC_BASE_URL :
-	process.env.SANITY_STUDIO_BASE_URL;
-
 	const res = await fetch(`${baseUrl}/api/GetPageInfo`);
 
 	const data = await res.json();
@@ -70,10 +59,6 @@ const fetchPageInfo = async (): Promise<PageInfo> => {
 }
 
 const fetchExperiences = async (): Promise<Experience[]> => {
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?
-	process.env.NEXT_PUBLIC_BASE_URL :
-	process.env.SANITY_STUDIO_BASE_URL;
-
 	const res = await fetch(`${baseUrl}/api/GetExperience`);
 
 	const data = await res.json();

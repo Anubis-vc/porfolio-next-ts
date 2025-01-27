@@ -41,7 +41,8 @@ function Projects({ projects }: Props) {
 							alt="project image"
 							width={formatDimensions(project?.image.asset._ref).width}
 							height={formatDimensions(project?.image.asset._ref).height}
-							className='max-h-[200px] w-auto object-cover mx-auto shadow-lg rounded-lg'
+							className='max-h-[200px] w-auto object-cover mx-auto shadow-lg rounded-lg 
+							border-2 border-transparent hover:border-secondary transition-colors'
 						/>
 					</Link>
 					<div className='space-y-5 px-0 md:px-10 max-w-6xl overflow-y-scroll'>
