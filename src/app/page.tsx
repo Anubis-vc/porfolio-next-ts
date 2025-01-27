@@ -1,12 +1,15 @@
 import About from "@/components/About";
 import Contact from "@/components/Contact";
-import Experience from "@/components/Experience";
+import Experiences from "@/components/Experiences";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import { fetchAllData } from "../../utils/utils";
 
-export default function Home() {
+export default async function Home() {
+  const { pageInfo, experiences, skills, socials, projects } = await fetchAllData();
+
   return (
     <div className="h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0">
       <Header />
@@ -21,7 +24,7 @@ export default function Home() {
       </section>
 
       <section id="experience" className="snap-center">
-        <Experience />
+        <Experiences />
       </section>
 
       <section id="skills" className="snap-start">
@@ -38,4 +41,4 @@ export default function Home() {
       </section>
     </div>
   );
-}
+};

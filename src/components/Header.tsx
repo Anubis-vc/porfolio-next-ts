@@ -3,8 +3,11 @@ import React from 'react'
 import { SocialIcon } from 'react-social-icons';
 import { motion } from "motion/react";
 import Link from 'next/link';
+import { Social } from '../../typings';
 
-type Props = {}
+type Props = {
+	// socials: Social[]
+}
 
 export default function Header({ }: Props) {
 	const iconBounceVariants = {
