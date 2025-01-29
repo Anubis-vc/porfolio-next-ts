@@ -29,13 +29,12 @@ body {
 
 @layer components {
   .heroButton {
-    @apply m-0 px-4 py-2 border border-[#65737E] rounded-full uppercase
-    text-xs tracking-widest text-[#65737E] transition-all hover:border-black hover:text-black
+    @apply m-0 px-2 md:px-4 py-1 md:py-2 md:uppercase border border-[#65737E] rounded-full
+    text-xs tracking-wider md:tracking-widest text-[#65737E] transition-all hover:border-black hover:text-black
   }
 
   .contactInput {
-    @apply outline-none bg-[#65737E]/30 rounded-sm border-b-2 px-6 py-4 border-accent
-    text-black placeholder-customGray transition-all focus:border-secondary
-    focus:text-primary hover:border-secondary
+    @apply w-full max-w-[525px] outline-none bg-[#B3CDE0]/30 rounded-lg border px-6 py-4 border-primary
+    text-black placeholder-customGray transition-all focus:border-secondary hover:border-secondary
   }
 }

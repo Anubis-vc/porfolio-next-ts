@@ -20,10 +20,11 @@ export default function About({ pageInfo }: Props) {
 			whileInView={{ opacity: 1 }}
 			transition={{ duration: 1.5 }}
 			viewport={{ once:true, amount:0.5 }}
-			className='flex flex-col relative h-screen text-center max-w-7xl px-10 
-			justify-evenly mx-auto items-center md:text-left md:flex-row pt-10 flex-shrink-0'
+			className='flex flex-col relative h-dvh text-center max-w-7xl px-5 md:px-10 justify-evenly
+			mx-auto items-center md:text-left md:flex-row pt-10 flex-shrink-0'
 		>
-			<h3 className='absolute top-24 uppercase tracking-[1.25rem] text-customGray text-2xl'>
+			<h3 className='absolute top-20 md:top-24 uppercase tracking-[0.8rem] md:tracking-[1.25rem]
+			text-customGray text-xl md:text-2xl'>
 				About
 			</h3>
 
@@ -40,8 +41,8 @@ export default function About({ pageInfo }: Props) {
 					opacity: 1,
 				}}
 				viewport={{ once: true }}
-				className='-mb-24 md:mb-0 flex-shrink-0 w-44 h-44 rounded-full object-cover
-					md:rounded-lg md:w-64 md:h-96 md:object-right'
+				className='-mb-24 md:mb-0 flex-shrink-0 w-40 h-40 rounded-full object-cover
+					md:rounded-lg md:w-64 md:h-96 md:object-right xl:w-96'
 			>
 				<Image
 					src={urlFor(pageInfo?.profilePic).url()}
@@ -52,11 +53,12 @@ export default function About({ pageInfo }: Props) {
 				/>
 			</motion.div>
 
-			<div className='space-y-5 md:space-y-10 px-0 md:pl-10'>
-				<h4 className='text-3xl font-semibold'>
-					A bit more about me
+			<div className='space-y-2 mt-2 md:space-y-5 px-0 md:pl-10'>
+				<h4 className='text-xl max-[360px]:opacity-0
+				lg:text-3xl font-semibold xl:text-4xl'>
+					More about me
 				</h4>
-				<p className='text-base md:text-lg'>
+				<p className='text-[0.9rem] md:text-lg xl:text-2xl'>
 					{pageInfo?.backgroundInfo}
 				</p>
 			</div>

@@ -15,17 +15,17 @@ function Experiences({ experiences }: Props) {
 		whileInView={{ opacity: 1 }}
 		transition={{ duration: 1.5 }}
 		viewport={{ once: true, amount: 0.5 }}
-		className='h-screen flex relative overflow-hidden flex-col text-left
-		md:flex-row max-w-full px-10 justify-evenly mx-auto items-center pt-24'
+		className='h-screen flex relative overflow-hidden text-left
+		md:flex-row max-w-full px-3 md:px-10 justify-evenly mx-auto items-center pt-16 md:pt-24'
 	>
 
-		<h3 className='absolute top-24 uppercase tracking-[1.25rem] 
-		text-customGray text-2xl'>
+		<h3 className='absolute top-16 md:top-24 uppercase tracking-[0.8rem] md:tracking-[1.25rem] 
+		text-customGray text-xl md:text-2xl'>
 			Experience
 		</h3>
 
-		<div className='w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory
-		scrollbar-thin scrollbar-track-[#65737E]/20 scrollbar-thumb-secondary'>
+		<div className='w-full flex space-x-3 md:space-x-7 overflow-x-scroll p-5 md:p-10 snap-x snap-mandatory
+		2xl:justify-center scrollbar-thin scrollbar-track-[#65737E]/20 scrollbar-thumb-secondary'>
 			{experiences?.map((exp => (
 				<ExpCard
 					key={exp._id}

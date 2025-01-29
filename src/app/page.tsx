@@ -7,6 +7,8 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import { fetchAllData } from "../../utils/utilsDirect";
 
+export const revalidate = 3600;
+
 export default async function Home() {
   const { pageInfo, experiences, skills, socials, projects } = await fetchAllData();
 
@@ -15,29 +17,29 @@ export default async function Home() {
       <Header socials={socials} />
 
       <section id="hero" className="snap-start">
-        <Hero pageInfo={pageInfo}/>
+        <Hero pageInfo={pageInfo} />
       </section>
 
-    {/* this component struggles on narrow resize flex-shrink-0 */}
+      {/* this component struggles on narrow resize flex-shrink-0 */}
       <section id="about" className="snap-center">
-        <About pageInfo={pageInfo}/>
+        <About pageInfo={pageInfo} />
       </section>
 
       <section id="experience" className="snap-center">
-        <Experiences experiences={experiences}/>
+        <Experiences experiences={experiences} />
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills skills={skills}/>
+        <Skills skills={skills} />
       </section>
 
       <section id="projects" className="snap-start">
-        <Projects projects={projects}/>
+        <Projects projects={projects} />
       </section>
 
       {/* Contact me */}
       <section id="contact" className="snap-start">
-        <Contact pageInfo={pageInfo}/>
+        <Contact pageInfo={pageInfo} />
       </section>
     </div>
   );

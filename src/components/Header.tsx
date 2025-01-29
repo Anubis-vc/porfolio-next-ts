@@ -36,8 +36,8 @@ export default function Header({ socials }: Props) {
 	};
 
 	return (
-		<header className='sticky flex items-center justify-center top-0 bg-primary h-16 z-20'>
-			<div className='flex justify-between max-w-7xl mx-auto w-full p-5 xl:items-center'>
+		<header className='sticky flex items-center justify-center top-0 bg-primary h-12 md:h-16 z-20'>
+			<div className='flex justify-between max-w-7xl mx-auto w-full p-2 sm:p-5 xl:items-center'>
 				<motion.div
 					variants={containerVariants}
 					initial="intial"
@@ -47,7 +47,7 @@ export default function Header({ socials }: Props) {
     					duration: 0.5,
     					bounce: 0.25
 					}}
-					className="flex flex-row items-center gap-3"
+					className="flex flex-row items-center sm:gap-2 md:gap-4"
 				>
 					{socials.map((social => (
 						<motion.div
