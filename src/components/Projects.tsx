@@ -12,71 +12,75 @@ type Props = {
 }
 
 function Projects({ projects }: Props) {
-  return (
-	<motion.div
-		initial={{ opacity: 0 }}
-		whileInView={{ opacity: 1}}
-		transition={{ duration: 1.5 }}
-		viewport={{ once: true, amount: 0.5 }}
-		className='h-screen relative flex flex-col overflow-hidden text-left 
-		justify-center mx-auto items-center z-0 pt-10 lg:pt-20'>
-		
-		<h3 className='absolute top-16 md:top-24 uppercase tracking-[0.8rem] md:tracking-[1.25rem] 
-		text-customGray text-xl md:text-2xl'>
-			Projects
-		</h3>
+	return (
+		<motion.div
+			initial={{ opacity: 0 }}
+			whileInView={{ opacity: 1 }}
+			transition={{ duration: 1.5 }}
+			viewport={{ once: true, amount: 0.5 }}
+			className='h-dvh w-screen relative flex flex-col overflow-hidden text-left max-w-full
+			justify-evenly mx-auto items-center z-0 pt-10 md:pt-20'>
 
-		<div className='relative w-screen flex overflow-x-scroll
-		snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-[#65737E]/20 
-		scrollbar-thumb-secondary max-[425px]:max-h-[580px] pt-20 lg:pt-20'>
-			{projects.map((project, i) => (
-				<div
-					key={project._id}
-					className='w-screen h-screen flex-shrink-0 flex flex-col
-					items-center justify-start px-7 md:px-20 snap-center space-y-5'
-				>
-					<Link href={project.link} target='_blank'>
-						<Image
-							src={urlFor(project?.image).url()}
-							alt="project image"
-							width={formatDimensions(project?.image.asset._ref).width}
-							height={formatDimensions(project?.image.asset._ref).height}
-							className='max-[425px]:h-40 max-[425px]:w-40 max-h-[200px] xl:max-h-[300px] w-auto 
-							object-cover mx-auto shadow-lg rounded-lg 
-							border-2 border-transparent hover:border-secondary transition-colors'
-						/>
-					</Link>
-					<div className='space-y-3 md:space-y-5 lg:space-y-7 px-0 md:px-10 max-w-6xl overflow-y-scroll'>
-						<h4 className='text-xl md:text-3xl xl:text-4xl font-semibold text-center'>
-							{i + 1} of {projects?.length}: {project?.title}
-						</h4>
+			<h3 className='absolute top-16 md:top-24 uppercase tracking-[0.8rem] md:tracking-[1.25rem] 
+			text-customGray text-xl md:text-2xl'>
+				Projects
+			</h3>
 
-						<div className='flex tems-center space-x-2 md:space-x-3 justify-center'>
-							{project?.technologies.map((tech) => (
-								<Image
-									key={tech._id}
-									src={urlFor(tech.image).url()}
-									alt={tech.title}
-									width={formatDimensions(tech.image.asset._ref).width}
-									height={formatDimensions(tech.image.asset._ref).height}
-									className='h-7 w-7 xl:h-10 xl:w-10 rounded-full'
-								/>
-							))}
+			<div className='relative w-full h-[85%] flex overflow-x-scroll overflow-y-hidden
+			snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-[#65737E]/20 
+			scrollbar-thumb-secondary pt-10'>
+				{projects.map((project, i) => (
+					<div
+						key={project._id}
+						className='w-screen h-full flex-shrink-0 flex flex-col
+						items-center justify-between px-7 md:px-20 snap-center'
+					>
+						<Link href={project.link} target='_blank' className='flex-none mb-4'>
+							<Image
+								src={urlFor(project?.image).url()}
+								alt="project image"
+								width={formatDimensions(project?.image.asset._ref).width}
+								height={formatDimensions(project?.image.asset._ref).height}
+								className='max-[425px]:h-40 max-[425px]:w-40 max-h-[200px] xl:max-h-[250px] w-auto 
+								object-cover mx-auto shadow-lg rounded-lg 
+								border-2 border-transparent hover:border-secondary transition-colors'
+							/>
+						</Link>
+						<div className='flex flex-col flex-1 w-full overflow-y-auto scrollbar-thin
+						space-y-3 md:space-y-5 lg:space-y-5 px-0 md:px-10 max-w-6xl'>
+							<div className='space-y-3 md:space-y-5'>
+								<h4 className='text-xl md:text-2xl xl:text-3xl font-semibold text-center'>
+									{i + 1} of {projects?.length}: {project?.title}
+								</h4>
+
+								<div className='flex items-center space-x-2 md:space-x-3 justify-center'>
+									{project?.technologies.map((tech) => (
+										<Image
+											key={tech._id}
+											src={urlFor(tech.image).url()}
+											alt={tech.title}
+											width={formatDimensions(tech.image.asset._ref).width}
+											height={formatDimensions(tech.image.asset._ref).height}
+											className='h-7 w-7 xl:h-9 xl:w-9 rounded-full'
+										/>
+									))}
+								</div>
+							</div>
+
+							<p className='text-sm md:text-md lg:text-lg xl:text-xl text-center md:text-left
+							overflow-y-visible'>
+								{project?.summary}
+							</p>
 						</div>
-						
-						<p className='text-sm md:text-md lg:text-xl text-center md:text-left'>
-							{project?.summary}
-						</p>
 					</div>
-				</div>
-			))}
-		</div>
+				))}
+			</div>
 
-		<div className='w-full absolute top-[30%] bg-[#59709C]/20 left-0 h-[400px]
-		-skew-y-12' />
+			<div className='w-full absolute top-[30%] bg-[#59709C]/20 left-0 h-[400px]
+			-skew-y-12' />
 
-	</motion.div>
-  )
+		</motion.div>
+	)
 }
 
 export default Projects

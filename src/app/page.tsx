@@ -20,7 +20,6 @@ export default async function Home() {
         <Hero pageInfo={pageInfo} />
       </section>
 
-      {/* this component struggles on narrow resize flex-shrink-0 */}
       <section id="about" className="snap-center">
         <About pageInfo={pageInfo} />
       </section>
@@ -37,7 +36,6 @@ export default async function Home() {
         <Projects projects={projects} />
       </section>
 
-      {/* Contact me */}
       <section id="contact" className="snap-start">
         <Contact pageInfo={pageInfo} />
       </section>

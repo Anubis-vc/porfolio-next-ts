@@ -24,7 +24,7 @@ function Hero({ pageInfo }: Props) {
 	});
 
 	return (
-		<div className='h-screen flex flex-col space-y-8 items-center justify-center
+		<div className='h-dvh flex flex-col space-y-8 items-center justify-center
 			text-center overflow-visible relative'>
 			<WaveAnimation />
 			<Image 

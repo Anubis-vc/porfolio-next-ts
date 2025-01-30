@@ -30,10 +30,10 @@ const Contact = ({ pageInfo }: Props) => {
 	}
 
 	return (
-		<div className='h-screen relative flex flex-col text-center overflow-hidden
-	md:text-left md:flex-row px-10 justify-evenly mx-auto items-center'>
+		<div className='h-dvh relative flex flex-col text-center overflow-hidden
+		md:text-left md:flex-row px-10 justify-evenly mx-auto items-center'>
 			<h3 className='absolute top-16 md:top-24 uppercase tracking-[0.8rem] md:tracking-[1.25rem] 
-		text-customGray text-xl md:text-2xl'>
+			text-customGray text-xl md:text-2xl'>
 				Contact Me
 			</h3>
 
@@ -56,7 +56,7 @@ const Contact = ({ pageInfo }: Props) => {
 				</div>
 
 				<form 
-					className='flex flex-col space-y-2 w-full mx-auto items-center'
+					className='flex flex-col space-y-2 w-full mx-auto items-center z-10'
 					onSubmit={handleSubmit(onSubmit)}
 				>
 					<input

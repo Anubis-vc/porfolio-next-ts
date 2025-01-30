@@ -21,9 +21,9 @@ export default function About({ pageInfo }: Props) {
 			transition={{ duration: 1.5 }}
 			viewport={{ once:true, amount:0.5 }}
 			className='flex flex-col relative h-dvh text-center max-w-7xl px-5 md:px-10 justify-evenly
-			mx-auto items-center md:text-left md:flex-row pt-10 flex-shrink-0'
+			mx-auto items-center md:text-left md:flex-row pt-5 md:pt-10'
 		>
-			<h3 className='absolute top-20 md:top-24 uppercase tracking-[0.8rem] md:tracking-[1.25rem]
+			<h3 className='absolute top-16 md:top-24 uppercase tracking-[0.8rem] md:tracking-[1.25rem]
 			text-customGray text-xl md:text-2xl'>
 				About
 			</h3>
