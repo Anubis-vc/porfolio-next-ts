@@ -15,7 +15,7 @@ function Experiences({ experiences }: Props) {
 		whileInView={{ opacity: 1 }}
 		transition={{ duration: 1.5 }}
 		viewport={{ once: true, amount: 0.5 }}
-		className='h-dvh flex relative overflow-hidden text-left
+		className='h-screen flex relative overflow-hidden text-left
 		md:flex-row max-w-full px-3 md:px-10 justify-evenly mx-auto items-center pt-12 md:pt-24'
 	>
 

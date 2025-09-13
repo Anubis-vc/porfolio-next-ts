@@ -4,6 +4,7 @@ import { SocialIcon } from 'react-social-icons';
 import { motion } from "motion/react";
 import Link from 'next/link';
 import { Social } from '../../typings';
+import { Camera } from 'lucide-react';
 
 type Props = {
 	socials: Social[];
@@ -62,6 +63,18 @@ export default function Header({ socials }: Props) {
 							/>
 						</motion.div>
 					)))}
+					<motion.div variants={iconBounceVariants}>
+						<Link 
+							href="https://lubezki.vedchugh.info" 
+							target="_blank"
+						>
+							<div className='hover:scale-105 transition duration-200 ease-in-out cursor-pointer'>
+								<Camera 
+									className="h-10 w-10 text-black"
+								/>
+							</div>
+						</Link>							
+					</motion.div>
 				</motion.div>
 
 				<motion.div

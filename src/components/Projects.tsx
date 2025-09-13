@@ -18,7 +18,7 @@ function Projects({ projects }: Props) {
 			whileInView={{ opacity: 1 }}
 			transition={{ duration: 1.5 }}
 			viewport={{ once: true, amount: 0.5 }}
-			className='h-dvh w-screen relative flex flex-col overflow-hidden text-left max-w-full
+			className='h-screen w-screen relative flex flex-col overflow-hidden text-left max-w-full
 			justify-evenly mx-auto items-center z-0 pt-10 md:pt-20'>
 
 			<h3 className='absolute top-16 md:top-24 uppercase tracking-[0.8rem] md:tracking-[1.25rem] 
@@ -44,6 +44,7 @@ function Projects({ projects }: Props) {
 								className='max-[425px]:h-40 max-[425px]:w-40 max-h-[200px] xl:max-h-[250px] w-auto 
 								object-cover mx-auto shadow-lg rounded-lg 
 								border-2 border-transparent hover:border-secondary transition-colors'
+								loading='eager'
 							/>
 						</Link>
 						<div className='flex flex-col flex-1 w-full overflow-y-auto scrollbar-thin
