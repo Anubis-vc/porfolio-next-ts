@@ -2,6 +2,7 @@
 import React from 'react'
 import { SocialIcon } from 'react-social-icons';
 import { motion } from "motion/react";
+import type { Variants } from "motion/react";
 import Link from 'next/link';
 import { Social } from '../../typings';
 import { Camera } from 'lucide-react';
@@ -22,7 +23,7 @@ export default function Header({ socials }: Props) {
 				ease: "easeOut",
 			}
 		}
-	};
+	} satisfies Variants;
 
 	const containerVariants = {
 		initial: {
