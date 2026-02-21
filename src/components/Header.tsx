@@ -42,7 +42,7 @@ export default function Header({ socials }: Props) {
 			<div className='flex justify-between max-w-7xl mx-auto w-full p-2 sm:p-5 xl:items-center'>
 				<motion.div
 					variants={containerVariants}
-					initial="intial"
+					initial="initial"
 					animate="animate"
 					transition= {{
 						type: "spring",
@@ -65,18 +65,19 @@ export default function Header({ socials }: Props) {
 						</motion.div>
 					)))}
 					<motion.div variants={iconBounceVariants}>
-						<Link 
-							href="https://lubezki.vedchugh.info" 
-							target="_blank"
-						>
-							<div className='hover:scale-105 transition duration-200 ease-in-out cursor-pointer'>
+							<Link 
+								href="https://lubezki.vedchugh.info" 
+								target="_blank"
+								rel="noopener noreferrer"
+								className='hover:scale-105 transition duration-200 ease-in-out cursor-pointer'
+								aria-label="Visit Ved's photography site"
+							>
 								<Camera 
 									className="h-10 w-10 text-black"
 								/>
-							</div>
-						</Link>							
+							</Link>							
+						</motion.div>
 					</motion.div>
-				</motion.div>
 
 				<motion.div
 					initial={{
@@ -92,25 +93,24 @@ export default function Header({ socials }: Props) {
 					transition={{
 						duration: 1.5,
 					}}
-				>
-					<Link href="#contact">
-						<div className='flex flex-row items-center cursor-pointer
-							hover:scale-105 transition duration-200 ease-in-out'
-						>
-							<SocialIcon
-							as="span"
-							target="_blank"
-							network="email"
-							fgColor="black"
-							bgColor="transparent"
-							/>
-							<p className="uppercase hidden md:inline-flex text-sm text-black-400">
-								Contact Me
-							</p>
-						</div>
-					</Link>
-				</motion.div>
-			</div>
+					>
+						<Link href="#contact">
+							<span className='flex flex-row items-center cursor-pointer
+								hover:scale-105 transition duration-200 ease-in-out'
+							>
+								<SocialIcon
+									as="span"
+									network="email"
+									fgColor="black"
+									bgColor="transparent"
+								/>
+								<p className="uppercase hidden md:inline-flex text-sm text-black-400">
+									Contact Me
+								</p>
+							</span>
+						</Link>
+					</motion.div>
+				</div>
 		</header>
 	);
 }
