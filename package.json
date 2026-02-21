@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint src utils typings.d.ts sanity.config.ts sanity.cli.ts next.config.ts tailwind.config.ts"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
