@@ -46,8 +46,8 @@ export interface Experience extends SanityBody {
 	_type: "experience";
 	companyImg: Image;
 	company: string;
-	dateStarted: date; // uppercase or lowercase d?
-	dateEnded: date;
+	dateStarted: string;
+	dateEnded: string;
 	isCurrentJob: boolean;
 	jobTitle: string;
 	technologies: SkillType[];
@@ -63,7 +63,7 @@ export interface Social extends SanityBody {
 export interface HomeProps {
 	pageInfo: PageInfo;
 	experiences: Experience[];
-	skills: Skill[];
+	skills: SkillType[];
 	socials: Social[];
 	projects: Project[];
 }
