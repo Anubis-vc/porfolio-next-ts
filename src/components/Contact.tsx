@@ -1,5 +1,4 @@
 "use client";
-import React from 'react'
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form"
 import { PageInfo } from '../../typings';
@@ -20,12 +19,13 @@ const Contact = ({ pageInfo }: Props) => {
 	const {
 		register,
 		handleSubmit,
+		formState: { errors },
 	} = useForm<Inputs>()
 
 	const onSubmit: SubmitHandler<Inputs> = (formData) => {
 		const subject = encodeURIComponent(formData.subject);
 		const body = encodeURIComponent(
-			`Hi, my name is ${formData.name}. ${formData.message}`
+			`Hi, my name is ${formData.name} (${formData.email}). ${formData.message}`
 		);
 		const mailtoLink = `mailto:${pageInfo.email}?subject=${subject}&body=${body}`;
 		window.location.assign(mailtoLink);
@@ -39,7 +39,7 @@ const Contact = ({ pageInfo }: Props) => {
 				Contact Me
 			</h3>
 
-			<div className='w-11/12 flex flex-col space-y-5 h-full items-center justify-center flex-shrink-0 max-h-96'>
+			<div className='w-11/12 flex flex-col space-y-5 h-full items-center justify-center shrink-0 max-h-96'>
 				<div className='space-y-2'>
 					<div className='flex items-center space-x-3 justify-center'>
 						<PhoneIcon className='text-customGray animate-pulse h-6 w-6' />
@@ -57,36 +57,72 @@ const Contact = ({ pageInfo }: Props) => {
 					</div>
 				</div>
 
-				<form 
-					className='flex flex-col space-y-2 w-full mx-auto items-center z-10'
-					onSubmit={handleSubmit(onSubmit)}
-				>
-					<input
-						className='contactInput py-2'
-						placeholder="Name"
-						type="text"
-						{...register('name')}
-					/>
-					<input
-						className='contactInput py-2'
-						placeholder="Email"
-						type="email"
-						{...register('email')}
-					/>
-					<input
-						className='contactInput py-2'
-						placeholder="Subject"
-						type="text" 
-						{...register('subject')}
-					/>
-					<textarea
-						className='contactInput max-h-64'
-						placeholder='Message'
-						{...register('message')}
-					/>
-					<button className='bg-primary py-2 px-8 rounded-md text-black 
-				font-semibold text-lg border-2 border-transparent hover:border-accent'
-						type="submit">
+					<form 
+						className='flex flex-col space-y-2 w-full mx-auto items-center z-10'
+						onSubmit={handleSubmit(onSubmit)}
+					>
+						<input
+							id="contact-name"
+							className='contactInput py-2'
+							placeholder="Name"
+							type="text"
+							aria-label="Name"
+							aria-invalid={errors.name ? "true" : "false"}
+							{...register('name', { required: "Name is required" })}
+						/>
+						{errors.name && (
+							<p className='w-full max-w-[525px] text-sm text-left text-accent'>{errors.name.message}</p>
+						)}
+						<input
+							id="contact-email"
+							className='contactInput py-2'
+							placeholder="Email"
+							type="email"
+							aria-label="Email"
+							aria-invalid={errors.email ? "true" : "false"}
+							{...register('email', {
+								required: "Email is required",
+								pattern: {
+									value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+									message: "Enter a valid email address",
+								},
+							})}
+						/>
+						{errors.email && (
+							<p className='w-full max-w-[525px] text-sm text-left text-accent'>{errors.email.message}</p>
+						)}
+						<input
+							id="contact-subject"
+							className='contactInput py-2'
+							placeholder="Subject"
+							type="text" 
+							aria-label="Subject"
+							aria-invalid={errors.subject ? "true" : "false"}
+							{...register('subject', { required: "Subject is required" })}
+						/>
+						{errors.subject && (
+							<p className='w-full max-w-[525px] text-sm text-left text-accent'>{errors.subject.message}</p>
+						)}
+						<textarea
+							id="contact-message"
+							className='contactInput max-h-64'
+							placeholder='Message'
+							aria-label="Message"
+							aria-invalid={errors.message ? "true" : "false"}
+							{...register('message', {
+								required: "Message is required",
+								minLength: {
+									value: 10,
+									message: "Message must be at least 10 characters",
+								},
+							})}
+						/>
+						{errors.message && (
+							<p className='w-full max-w-[525px] text-sm text-left text-accent'>{errors.message.message}</p>
+						)}
+						<button className='bg-primary py-2 px-8 rounded-md text-black 
+					font-semibold text-lg border-2 border-transparent hover:border-accent'
+							type="submit">
 						Submit
 					</button>
 				</form>

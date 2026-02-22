@@ -1,5 +1,4 @@
 'use client';
-import React from 'react'
 import { motion } from "motion/react";
 import { PageInfo } from '../../typings';
 import { urlFor } from '@/sanity/lib/image';
