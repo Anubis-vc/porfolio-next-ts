@@ -104,7 +104,7 @@ export default function Header({ socials }: Props) {
 									fgColor="black"
 									bgColor="transparent"
 								/>
-								<p className="uppercase hidden md:inline-flex text-sm text-black-400">
+								<p className="uppercase hidden md:inline-flex text-sm text-black">
 									Contact Me
 								</p>
 							</span>

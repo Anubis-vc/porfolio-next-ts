@@ -25,12 +25,12 @@ function Skills({ skills }: Props) {
 			Hover over skill for proficiency
 		</h3>
 
-		<div className='grid grid-cols-4 gap-3 md:grid-cols-5 lg:grid-cols-6
-		md:gap-5 max-w-6xljustify-items-center md:pt-20'>
-			{skills?.map((skill, index) => (
-				<Skill key={skill._id} skill={skill} index={index}/>
-			))}
-		</div>
+			<div className='grid grid-cols-4 gap-3 md:grid-cols-5 lg:grid-cols-6
+			md:gap-5 max-w-6xl justify-items-center md:pt-20'>
+				{skills?.map((skill, index) => (
+					<Skill key={skill._id} skill={skill} index={index}/>
+				))}
+			</div>
 	</motion.div>
   )
 }

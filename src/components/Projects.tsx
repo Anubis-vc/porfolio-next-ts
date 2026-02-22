@@ -68,7 +68,7 @@ function Projects({ projects }: Props) {
 								</div>
 							</div>
 
-							<p className='text-sm md:text-md lg:text-lg xl:text-xl text-center md:text-left
+							<p className='text-sm md:text-base lg:text-lg xl:text-xl text-center md:text-left
 							overflow-y-visible'>
 								{project?.summary}
 							</p>

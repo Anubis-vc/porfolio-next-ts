@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 // })
 
 export const metadata: Metadata = {
-  title: "Ved's Portoflio",
-  description: "Ved Chugh's programming portfolio built using create-next-app",
+  title: "Ved's Portfolio",
+  description: "Portfolio of Ved Chugh featuring software projects, experience, and technical skills.",
 };
 
 export default function RootLayout({
