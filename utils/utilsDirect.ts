@@ -3,7 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { Social, SkillType, Project, PageInfo, Experience } from "../typings";
 
 const fetchWithCache = async <T>(query: string): Promise<T> => {
-	return client.fetch(query, {}, { next: { revalidate: 3600 }});
+	return client.fetch(query);
 };
 
 const fetchSocials = async (): Promise<Social[]> => {
