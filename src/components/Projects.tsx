@@ -32,20 +32,21 @@ function Projects({ projects }: Props) {
 				{projects.map((project, i) => (
 					<div
 						key={project._id}
-						className='w-screen h-full flex-shrink-0 flex flex-col
+						className='w-screen h-full shrink-0 flex flex-col
 						items-center justify-between px-7 md:px-20 snap-center'
 					>
 						<Link href={project.link} target='_blank' className='flex-none mb-4'>
-							<Image
-								src={urlFor(project?.image).url()}
-								alt="project image"
-								width={formatDimensions(project?.image.asset._ref).width}
-								height={formatDimensions(project?.image.asset._ref).height}
-								className='max-[425px]:h-40 max-[425px]:w-40 max-h-[200px] xl:max-h-[250px] w-auto 
-								object-cover mx-auto shadow-lg rounded-lg 
-								border-2 border-transparent hover:border-secondary transition-colors'
-								loading='eager'
-							/>
+								<Image
+									src={urlFor(project?.image).url()}
+									alt="project image"
+									width={formatDimensions(project?.image.asset._ref).width}
+									height={formatDimensions(project?.image.asset._ref).height}
+									priority={i === 0}
+									className='max-[425px]:h-40 max-[425px]:w-40 max-h-50 xl:max-h-62.5 w-auto 
+									object-cover mx-auto shadow-lg rounded-lg 
+									border-2 border-transparent hover:border-secondary transition-colors'
+									loading={i === 0 ? 'eager' : 'lazy'}
+								/>
 						</Link>
 						<div className='flex flex-col flex-1 w-full overflow-y-auto scrollbar-thin
 						space-y-3 md:space-y-5 lg:space-y-5 px-0 md:px-10 max-w-6xl'>
@@ -77,7 +78,7 @@ function Projects({ projects }: Props) {
 				))}
 			</div>
 
-			<div className='w-full absolute top-[30%] bg-[#59709C]/20 left-0 h-[400px]
+			<div className='w-full absolute top-[30%] bg-[#59709C]/20 left-0 h-100
 			-skew-y-12' />
 
 		</motion.div>

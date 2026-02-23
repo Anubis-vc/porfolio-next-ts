@@ -32,7 +32,8 @@ function Hero({ pageInfo }: Props) {
 				src={urlFor(pageInfo?.heroImage).url()}
 				width={897}
 				height={897}
-				alt="picture of me" 
+				alt="picture of me"
+				loading="eager"
 			/>
 
 			<div className='z-10'>
